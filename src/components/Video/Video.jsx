@@ -13,7 +13,7 @@ class Video extends Component {
             className='video'
             title='player'
             type='text/html'
-            src={`http://www.youtube.com/embed/${match.params.videoId}?autoplay=1`}
+            src={`https://www.youtube.com/embed/${match.params.videoId}?autoplay=1`}
             frameBorder='0'
             allowFullScreen
           />

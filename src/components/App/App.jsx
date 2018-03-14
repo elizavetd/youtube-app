@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { GAPI_URL, API_KEY } from '../../libs/apiHelpers'
-import { Route } from 'react-router-dom'
+import { Route, withRouter } from 'react-router-dom'
 
 import VideoList from '../../containers/VideoList/VideoList'
 import Video from '../Video/Video'
@@ -42,6 +42,10 @@ class App extends Component {
   searchVideos () {
     if (this.state.gapiReady) {
       this.props.youtubeActions.searchVideos(this.state.searchQuery)
+    }
+
+    if (this.props.history.location.pathname !== '/') {
+      this.props.history.push('/')
     }
   }
 
@@ -101,4 +105,4 @@ class App extends Component {
   }
 }
 
-export default App
+export default withRouter(App)
