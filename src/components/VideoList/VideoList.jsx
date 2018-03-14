@@ -8,7 +8,7 @@ class VideoList extends Component {
   loadMoreVideos () {
     if (this.list.scrollTop + this.list.clientHeight >= this.list.scrollHeight) {
       this.props.youtubeActions.loadNextSearchResultPage(
-        'cats',
+        this.props.youtube.currentSearchQuery,
         this.props.youtube.searchResult.nextPageToken
       )
     }

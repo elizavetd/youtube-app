@@ -13,7 +13,7 @@ class App extends Component {
 
     this.state = {
       gapiReady: false,
-      searchQuery: 'cats'
+      searchQuery: ''
     }
   }
 

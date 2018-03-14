@@ -18,6 +18,7 @@ export const searchVideos = searchQuery => dispatch => {
     dispatch({
       type: SEARCH_VIDEOS,
       payload: {
+        currentSearchQuery: searchQuery,
         searchResult: searchResult
       }
     })

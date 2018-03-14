@@ -13,6 +13,7 @@ export default function youtubeState (state = initialState, action) {
     case SEARCH_VIDEOS:
       return {
         ...state,
+        currentSearchQuery: action.payload.currentSearchQuery,
         searchResult: action.payload.searchResult
       }
 
