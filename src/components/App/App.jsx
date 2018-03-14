@@ -45,14 +45,31 @@ class App extends Component {
     }
   }
 
+  handleEnterKeyPress (e) {
+    e.preventDefault()
+
+    if (e.keyCode === 13) {
+      document.getElementsByClassName('search__button')[0].click()
+    }
+  }
+
   componentWillMount () {
     this.loadYoutubeApi()
+  }
+
+  componentDidMount () {
+    this.searchInput = document.getElementsByClassName('search__input')[0]
+    this.searchInput.addEventListener('keyup', this.handleEnterKeyPress)
   }
 
   componentWillUpdate (nextProps, nextState) {
     if (this.state.gapiReady !== nextState.gapiReady && nextState.searchQuery) {
       this.props.youtubeActions.searchVideos(nextState.searchQuery)
     }
+  }
+
+  componentWillUnmount () {
+    this.searchInput.removeEventListener('keyup', this.handleEnterKeyPress)
   }
 
   render () {
