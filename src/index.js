@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
-import { BrowserRouter as Router, Switch } from 'react-router-dom'
+import { HashRouter as Router, Switch } from 'react-router-dom'
 
 import './index.css'
 import App from './containers/App/App'
