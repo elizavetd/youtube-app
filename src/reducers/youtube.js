@@ -1,8 +1,10 @@
 import {
-  SEARCH_VIDEOS
+  SEARCH_VIDEOS,
+  LOAD_NEXT_SEARCH_RESULT_PAGE
 } from '../actions/youtube'
 
 const initialState = {
+  currentSearchQuery: '',
   searchResult: {}
 }
 
@@ -12,6 +14,18 @@ export default function youtubeState (state = initialState, action) {
       return {
         ...state,
         searchResult: action.payload.searchResult
+      }
+
+    case LOAD_NEXT_SEARCH_RESULT_PAGE:
+      return {
+        ...state,
+        searchResult: {
+          ...action.payload.searchResult,
+          items: [
+            ...state.searchResult.items,
+            ...action.payload.searchResult.items
+          ]
+        }
       }
 
     default:

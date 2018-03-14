@@ -5,9 +5,27 @@ import { Link, withRouter } from 'react-router-dom'
 import './VideoList.css'
 
 class VideoList extends Component {
+  loadMoreVideos () {
+    if (this.list.scrollTop + this.list.clientHeight >= this.list.scrollHeight) {
+      this.props.youtubeActions.loadNextSearchResultPage(
+        'cats',
+        this.props.youtube.searchResult.nextPageToken
+      )
+    }
+  }
+
+  componentDidMount () {
+    this.list = document.getElementsByClassName('content')[0]
+    this.list.addEventListener('scroll', this.loadMoreVideos.bind(this))
+  }
+
+  componentWillUnmount () {
+    this.list.removeEventListener('scroll', this.loadMoreVideos.bind(this))
+  }
+
   render () {
     return (
-      <div className='video-list'>
+      <div id='video-list' className='video-list'>
         {this.props.youtube.searchResult.items &&
           this.props.youtube.searchResult.items.map((video, index) => (
             <Link
