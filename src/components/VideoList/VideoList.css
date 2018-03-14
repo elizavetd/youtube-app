@@ -34,10 +34,12 @@
 .video-list-item__title {
   font-size: 20px;
   margin-top: 0;
+  margin-bottom: 10px;
 }
 
 .video-list-item__channel {
   font-size: 13px;
+  margin: 0;
 }
 
 .video-list-item__date {
@@ -46,4 +48,10 @@
 
 .video-list-item__description {
   font-size: 14px;
+}
+
+@media all and (max-width: 1050px) {
+  .video-list {
+    margin: 50px 20px;
+  }
 }

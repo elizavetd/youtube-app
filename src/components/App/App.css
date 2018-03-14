@@ -47,3 +47,9 @@
 .search__button:hover {
   cursor: pointer;
 }
+
+@media all and (max-width: 1050px) {
+  .search__container {
+    padding: 0 20px;
+  }
+}

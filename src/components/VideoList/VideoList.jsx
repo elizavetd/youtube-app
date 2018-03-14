@@ -42,7 +42,7 @@ class VideoList extends Component {
                   <h3 className='video-list-item__title'>{video.snippet.title}</h3>
                   <h5 className='video-list-item__channel'>{video.snippet.channelTitle}</h5>
                   <p className='video-list-item__date'>
-                    {moment(video.snippet.publishedAt).format('DD.MM.YYYY HH:mm:ss')}
+                    {moment(video.snippet.publishedAt).format('DD.MM.YYYY HH:mm')}
                   </p>
                   <p className='video-list-item__description'>{video.snippet.description}</p>
                 </div>

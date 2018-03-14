@@ -1,3 +1,34 @@
 .video-container {
-  margin-top: 100px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.video {
+  width: 960px;
+  height: 540px;
+}
+
+@media all and (max-width: 1050px) {
+  .video-container {
+    display: block;
+    background-color: black;
+  }
+
+  .video__wrapper {
+    position:relative;
+    padding-bottom:56.25%;
+    padding-top:30px;
+    height:0;
+    overflow:hidden;
+  }
+  
+  .video {
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+  }
 }

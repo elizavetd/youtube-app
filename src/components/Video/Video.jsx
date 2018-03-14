@@ -8,15 +8,16 @@ class Video extends Component {
     const { match } = this.props
     return (
       <div className='video-container'>
-        <iframe
-          title='player'
-          type='text/html'
-          width='960'
-          height='540'
-          src={`http://www.youtube.com/embed/${match.params.videoId}?autoplay=1`}
-          frameBorder='0'
-          allowFullScreen
-        />
+        <div className='video__wrapper'>
+          <iframe
+            className='video'
+            title='player'
+            type='text/html'
+            src={`http://www.youtube.com/embed/${match.params.videoId}?autoplay=1`}
+            frameBorder='0'
+            allowFullScreen
+          />
+        </div>
       </div>
     )
   }
