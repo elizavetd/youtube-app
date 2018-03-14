@@ -13,7 +13,7 @@ class App extends Component {
 
     this.state = {
       gapiReady: false,
-      searchQuery: ''
+      searchQuery: 'cats'
     }
   }
 
@@ -49,6 +49,12 @@ class App extends Component {
     this.loadYoutubeApi()
   }
 
+  componentWillUpdate (nextProps, nextState) {
+    if (this.state.gapiReady !== nextState.gapiReady && nextState.searchQuery) {
+      this.props.youtubeActions.searchVideos(nextState.searchQuery)
+    }
+  }
+
   render () {
     return (
       <div className='app'>
@@ -71,7 +77,7 @@ class App extends Component {
 
         <div className='content'>
           <Route exact path='/' component={VideoList} />
-          <Route path='/video' component={Video} />
+          <Route path='/video/:videoId' component={Video} />
         </div>
       </div>
     )

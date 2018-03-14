@@ -6,7 +6,6 @@ import './VideoList.css'
 
 class VideoList extends Component {
   render () {
-    console.log(this.props)
     return (
       <div className='video-list'>
         {this.props.youtube.searchResult.items &&

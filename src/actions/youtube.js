@@ -10,7 +10,7 @@ export const searchVideos = searchQuery => dispatch => {
       'maxResults': '25',
       'part': 'snippet',
       'q': searchQuery,
-      'type': '',
+      'type': 'video',
       'key': API_KEY
     }
   ).then(searchResult =>
