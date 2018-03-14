@@ -1,0 +1,49 @@
+.video-list {
+  margin: 50px 10%;
+}
+
+.video-list-item__container {
+  color: black;
+  font-weight: 400;
+  text-decoration: none;
+}
+
+.video-list-item {
+  display: flex;
+  margin: 20px 0;
+  padding: 5px;
+}
+
+.video-list-item:hover {
+  cursor: pointer;
+}
+
+.video-list-item__thumbnail {
+  min-width: 320px;
+  display: flex;
+  justify-content: space-around;
+  background-color: black;
+}
+
+.video-list-item__info {
+  width: 100%;
+  text-align: left;
+  padding-left: 20px;
+}
+
+.video-list-item__title {
+  font-size: 20px;
+  margin-top: 0;
+}
+
+.video-list-item__channel {
+  font-size: 13px;
+}
+
+.video-list-item__date {
+  font-size: 11px;
+}
+
+.video-list-item__description {
+  font-size: 14px;
+}

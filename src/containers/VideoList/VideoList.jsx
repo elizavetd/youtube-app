@@ -2,13 +2,13 @@ import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
-import App from '../../components/App/App'
+import VideoList from '../../components/VideoList/VideoList'
 import * as youtubeActions from '../../actions/youtube'
 
-export class AppContainer extends Component {
+export class VideoListContainer extends Component {
   render () {
     return (
-      <App
+      <VideoList
         youtube={this.props.youtube}
         youtubeActions={this.props.youtubeActions}
       />
@@ -28,4 +28,4 @@ function mapDispatchToProps (dispatch) {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(AppContainer)
+export default connect(mapStateToProps, mapDispatchToProps)(VideoListContainer)

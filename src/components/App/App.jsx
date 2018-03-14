@@ -1,5 +1,9 @@
 import React, { Component } from 'react'
-import { GAPI_URL, API_KEY, buildApiRequest } from '../../libs/apiHelpers'
+import { GAPI_URL, API_KEY } from '../../libs/apiHelpers'
+import { Route } from 'react-router-dom'
+
+import VideoList from '../../containers/VideoList/VideoList'
+import Video from '../Video/Video'
 
 import './App.css'
 
@@ -8,7 +12,8 @@ class App extends Component {
     super()
 
     this.state = {
-      gapiReady: false
+      gapiReady: false,
+      searchQuery: ''
     }
   }
 
@@ -28,33 +33,46 @@ class App extends Component {
     document.body.appendChild(script)
   }
 
+  handleSearchQueryChange (e) {
+    this.setState({
+      searchQuery: e.currentTarget.value
+    })
+  }
+
+  searchVideos () {
+    if (this.state.gapiReady) {
+      this.props.youtubeActions.searchVideos(this.state.searchQuery)
+    }
+  }
+
   componentWillMount () {
     this.loadYoutubeApi()
   }
 
   render () {
-    if (this.state.gapiReady) {
-      buildApiRequest(
-        'GET',
-        '/youtube/v3/search',
-        {
-          'maxResults': '25',
-          'part': 'snippet',
-          'q': 'surfing',
-          'type': '',
-          'key': API_KEY
-        }
-      )
-    }
-
     return (
-      <div className='App'>
-        <header className='App-header'>
-          <h1 className='App-title'>Welcome to React</h1>
+      <div className='app'>
+        <header className='app-header'>
+          <div className='search__container'>
+            <input
+              className='search__input'
+              placeholder='Search for videos'
+              value={this.state.searchQuery}
+              onChange={this.handleSearchQueryChange.bind(this)}
+            />
+            <button
+              className='search__button'
+              onClick={this.searchVideos.bind(this)}
+            >
+              Search
+            </button>
+          </div>
         </header>
-        <p className='App-intro'>
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+
+        <div className='content'>
+          <Route exact path='/' component={VideoList} />
+          <Route path='/video' component={Video} />
+        </div>
       </div>
     )
   }
